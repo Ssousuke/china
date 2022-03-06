@@ -8,7 +8,9 @@
             <div class="column post is-4">
                 <article class="columns is-multiline">
                     <div class="column is-12 post-img">
-                        <img src="https://cdn.emk.dev/templates/post-img.png" alt="Featured Image">
+                        {% if post.thumb %}
+                        <img src="{{ post.thumb.url }}" alt="Featured Image">
+                        {% endif %}
                     </div>
                     <div class="column is-12 featured-content ">
                         <h3 class="heading post-category">{{post.category}}, {{ post.updated_at|date:"d, M, Y"  }}</h3>
