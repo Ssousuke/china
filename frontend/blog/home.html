@@ -14,7 +14,7 @@
                 <div class="column is-12 featured-content ">
                     <h3 class="heading post-category">{{post.category}}, {{ post.updated_at|date:"d, M, Y"  }}</h3>
                     <h1 class="title post-title">{{post.title}}</h1>
-                    <p class="post-excerpt">{{post.body|truncatewords:30}}</p>
+                    <p class="post-excerpt">{{post.body|safe|truncatewords:30}}</p>
                     <br>
                     <a href="{{ post.get_absolute_url}}" class="button is-primary">Continuar Lendo</a>
                     <a href="{% url 'blog:category' post.category.slug %}"
