@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from unicodedata import category
 from django.db import models
 from django.contrib.auth.models import User
@@ -12,6 +13,7 @@ def slugify_function(content):
 
 class Category(Base):
     name = models.CharField(max_length=80)
+    thumb = models.ImageField(upload_to='category/thumb', blank=True)
     slug = AutoSlugField(populate_from='name', unique=True, editable=False)
 
     def __str__(self) -> str:
@@ -26,6 +28,7 @@ class Category(Base):
 
 
 class Post(Base):
+    thumb = models.ImageField(upload_to='category/thumb', blank=True)
     title = models.CharField(max_length=100)
     body = models.TextField()
     category = models.ForeignKey(

@@ -7,9 +7,11 @@
             {% for post in list %}
             <div class="column post is-4">
                 <article class="columns is-multiline">
+                    {% if post.thumb %}
                     <div class="column is-12 post-img">
-                        <img src="https://cdn.emk.dev/templates/post-img.png" alt="Featured Image">
+                        <img src="{{ post.thumb.url }}" alt="Featured Image">
                     </div>
+                    {% endif %}
                     <div class="column is-12 featured-content ">
                         <h3 class="heading post-category">{{ post.updated_at|date:"d, M, Y" }}</h3>
                         <h1 class="title post-title">{{post.name}}</h1>
