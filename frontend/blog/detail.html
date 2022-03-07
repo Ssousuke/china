@@ -19,7 +19,7 @@
                         <div class="content is-medium">
                             <h2 class="subtitle is-4">{{ detail.updated_at }}, @{{ detail.author }}</h2>
                             <h1 class="title">{{ detail.title }}</h1>
-                            <p>{{ detail.body|safe }}</p>
+                            {{ detail.body|safe }}
                         </div>
                     </div>
                 </div>
