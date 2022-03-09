@@ -26,6 +26,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # External apps
+    'ckeditor',
 
     # My_apps
     'apps.blog.apps.BlogConfig',

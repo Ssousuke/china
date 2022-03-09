@@ -127,7 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-apps/blog/migrations/
 media/
 .idea/
 

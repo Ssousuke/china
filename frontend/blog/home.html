@@ -8,17 +8,15 @@
             <article class="columns is-multiline">
                 <div class="column is-12 post-img">
                     {% if post.thumb %}
-                    <img src="{{ post.thumb.url }}" alt="Featured Image">
-                    {% endif %}
+                    <img src="{{ post.thumb.url }}" alt="Featured Image"> {% endif %}
                 </div>
                 <div class="column is-12 featured-content ">
-                    <h3 class="heading post-category">{{post.category}}, {{ post.updated_at|date:"d, M, Y"  }}</h3>
+                    <h3 class="heading post-category">{{post.category}}, {{ post.updated_at|date:"d, M, Y" }}</h3>
                     <h1 class="title post-title">{{post.title}}</h1>
-                    <p class="post-excerpt">{{post.body|truncatewords:30|safe}}</p>
+                    <p class="post-excerpt">{{ post.description }}</p>
                     <br>
                     <a href="{{ post.get_absolute_url}}" class="button is-primary">Continuar Lendo</a>
-                    <a href="{% url 'blog:category' post.category.slug %}"
-                        class="button is-warning">{{post.category}}</a>
+                    <a href="{% url 'blog:category' post.category.slug %}" class="button is-warning">{{post.category}}</a>
                 </div>
             </article>
         </div>
