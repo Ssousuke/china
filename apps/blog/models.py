@@ -26,6 +26,7 @@ class Category(Base):
     class Meta:
         verbose_name = 'Categoria'
         verbose_name_plural = 'Categorias'
+        ordering = ['name']
 
 
 class Post(Base):
@@ -48,3 +49,4 @@ class Post(Base):
     class Meta:
         verbose_name = 'Postagem'
         verbose_name_plural = 'Postagens'
+        ordering = ['updated_at']

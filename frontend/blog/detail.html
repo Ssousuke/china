@@ -1,30 +1,15 @@
 {% extends 'base.html' %}
 <title>{% block title %}{{ detail.title }} | {% endblock title %}</title>
 {% block content %}
-<section class="hero">
-    <div class="hero-body">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-8 is-offset-2">
-                    {% if detail.thumb %}
-                    <figure class="image is-16by9">
-                        <img src="{{ detail.thumb.url }}" alt="">
-                    </figure>
-                    {% endif %}
-                </div>
-            </div>
-            <section class="section">
-                <div class="columns">
-                    <div class="column is-8 is-offset-2">
-                        <div class="content is-medium">
-                            <h2 class="subtitle is-4">{{ detail.updated_at }}, @{{ detail.author }}</h2>
-                            <h1 class="title">{{ detail.title }}</h1>
-                            {{ detail.body|safe }}
-                        </div>
-                    </div>
-                </div>
-            </section>
+<div class="px-4 text-center border">
+    <h1 class="display-4 fw-bold">{{ detail.title }}</h1>
+    <p class="text-muted">publicado em; {{ detail.created_at}}, última atualização; {{ detail.updated_at }}, por {{ detail.author }}</p>
+    <div class="col-lg-12 mx-auto">
+        {{detail.body|safe}}
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+            <button type="button" class="btn btn-warning btn-lg px-4 me-sm-3"><i
+                    class="bi bi-bookmark-heart"></i>{{detail.category}}</button>
         </div>
     </div>
-</section>
+</div>
 {% endblock content %}
