@@ -4,7 +4,7 @@
 <ul class="list-group">
     <li class="list-group-item bg-warning" aria-current="true"><i class="bi bi-dot"></i>Lista de categorias</li>
     {% for cat in list %}
-    <li class="list-group-item">{{ cat.name }}</li>
+    <li class="list-group-item"><a href="{% url 'blog:category' cat.slug %}" class="text-decoration-none text-dark">{{ cat.name }}</a></li>
     {% endfor %}
 </ul>
 {% endblock content %}
