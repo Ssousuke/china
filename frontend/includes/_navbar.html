@@ -1,26 +1,19 @@
-<nav class="navbar is-danger is-fixed-top" role="navigation" aria-label="main navigation">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg fixed-top" aria-label="Navbar Blog">
     <div class="container">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="{% url 'blog:home' %}">
-                <i class="fas fa-home m-1"></i>Home
-            </a>
+        <a class="navbar-brand" href="{% url 'blog:home' %}"><i class="bi bi-alt"></i>Blog</a>
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarForBlog" aria-controls="navbarForBlog" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-
-        <div id="navbarBasic" class="navbar-menu">
-            <div class="navbar-start">
-                <a href="{% url 'blog:categories' %}" class="navbar-item">
-                    <i class="fas fa-tags m-1"></i> Categorias
-                </a>
-                <a class="navbar-item">
-                    <i class="fas fa-id-badge m-1"></i> Portfólio
-                </a>
-            </div>
+        <div class="navbar-collapse collapse" id="navbarForBlog">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'blog:categories'%}">Categorias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Portfólio</a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
