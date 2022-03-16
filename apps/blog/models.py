@@ -49,4 +49,4 @@ class Post(Base):
     class Meta:
         verbose_name = 'Postagem'
         verbose_name_plural = 'Postagens'
-        ordering = ['updated_at']
+        ordering = ['-updated_at']

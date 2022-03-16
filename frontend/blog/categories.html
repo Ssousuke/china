@@ -1,10 +1,11 @@
 {% extends 'base.html'%}
-<title>{% block title %}Home{% endblock title %}</title>
+<title>{% block title %} Categorias {% endblock title %}</title>
 {% block content %}
+<h1 class="display-"><i class="fas fa-hashtag"></i>Categorias</h1>
 <ul class="list-group">
-    <li class="list-group-item bg-warning" aria-current="true"><i class="bi bi-dot"></i>Lista de categorias</li>
     {% for cat in list %}
-    <li class="list-group-item"><a href="{% url 'blog:category' cat.slug %}" class="text-decoration-none text-dark">{{ cat.name }}</a></li>
+    <li class="list-group-item m-2"><i class="fas fa-circle-notch m-2"></i>
+        <a href="{% url 'blog:category' cat.slug %}">{{ cat.name }}</a>
+    </li>
     {% endfor %}
-</ul>
-{% endblock content %}
+</ul>{% endblock content %}
