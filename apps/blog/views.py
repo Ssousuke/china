@@ -23,5 +23,5 @@ def categories(request):
 def category(request, slug):
     template_name = 'blog/home.html'
     category = Category.objects.get(slug=slug)
-    list = Post.objects.filter(category=category)
+    list = Post.objects.filter(category=category, published=True)
     return render(request, template_name, {'list': list})
