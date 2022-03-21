@@ -36,7 +36,7 @@ class Post(Base):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     published = models.BooleanField(default=False)
     slug = AutoSlugField(populate_from='title', unique=True, editable=False)
-    views = models.IntegerField(editable=False, default=0)
+    views = models.IntegerField(editable=False, default=0, blank=True, null=True)
 
     def __str__(self) -> str:
         return f'{self.title}'
