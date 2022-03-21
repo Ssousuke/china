@@ -16,7 +16,6 @@ DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -28,10 +27,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # External apps
-    'ckeditor',
 
     # My_apps
     'apps.blog.apps.BlogConfig',
+    'apps.cms.apps.CmsConfig',
 ]
 
 MIDDLEWARE = [
@@ -66,7 +65,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'china.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
@@ -76,7 +74,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -96,7 +93,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -107,7 +103,6 @@ TIME_ZONE = 'America/Sao_Paulo'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
@@ -123,8 +118,13 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 django_heroku.settings(locals())
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Login
+# https://docs.djangoproject.com/en/4.0/ref/settings/
+LOGIN_URL = '/login/admin/china/'
+LOGIN_REDIRECT_URL = '/login/admin/china/'
+LOGOUT_REDIRECT_URL = '/login/admin/china/'
