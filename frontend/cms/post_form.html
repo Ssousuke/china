@@ -1,0 +1,13 @@
+{% extends 'base_cms.html'%}
+<title>{% block title %}{{ post.title }}{% endblock title %}</title>
+
+{% block content %}
+<div class="card p-5">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a href="{% url 'cms:posts' %}" class="btn btn-danger">Cancelar</a>
+    </form>
+</div>
+{% endblock content %}

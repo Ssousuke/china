@@ -1,11 +1,8 @@
-from distutils.command.upload import upload
-from unicodedata import category
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from apps.utils.base_models import Base
 from django_extensions.db.fields import AutoSlugField
-from ckeditor.fields import RichTextField
 
 
 def slugify_function(content):
@@ -33,12 +30,13 @@ class Post(Base):
     thumb = models.ImageField(upload_to='category/thumb', blank=True)
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
-    body = RichTextField(blank=True, null=True)
+    body = models.TextField(blank=True, null=True)
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     published = models.BooleanField(default=False)
     slug = AutoSlugField(populate_from='title', unique=True, editable=False)
+    views = models.IntegerField(editable=False, default=0)
 
     def __str__(self) -> str:
         return f'{self.title}'
