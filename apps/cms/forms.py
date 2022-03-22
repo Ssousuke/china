@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from apps.blog.models import Post
+from apps.blog.models import Post, Category
 
 
 class SearchPost(ModelForm):
@@ -41,4 +41,17 @@ class PostForm(ModelForm):
                     'class': 'checkbox',
                 }
             ),
+        }
+
+
+class CategoryForm(ModelForm):
+    class Meta:
+        model = Category
+        exclude = ['thumb']
+        widgets = {
+            'name': forms.TextInput(
+                attrs={
+                    'class': 'form-control'
+                }
+            )
         }

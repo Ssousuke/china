@@ -1,16 +1,11 @@
-{% extends 'base_cms.html'%}
-<title>{% block title %} Postagens {% endblock title %}</title>
+{% extends 'base_cms.html' %}
+<title>{% block title %}Categorias{% endblock title %}</title>
 {% block content %}
-<div class="card shadow mb-2">
+<div class="card shadow mb-4">
     <div class="card-header py-3">
-        <div class="row">
-            <div class="col-sm card p-3">
-                <h6 class="m-0 font-weight-bold text-primary mb-1">Filtrar postagens</h6>
-            </div>
-            <div class="col-sm card p-3">
-                <h6 class="m-0 font-weight-bold text-primary mb-1">Gestão de postagens</h6>
-                <a href="{% url 'cms:new_post'%}" class="btn btn-primary m-1">Criar postagens</a>
-            </div>
+        <div class="col-sm-3 card p-3 my-2">
+            <h6 class="m-0 font-weight-bold text-primary mb-1">Gestão de categorias</h6>
+            <a href="{% url 'cms:create_category'%}" class="btn btn-primary m-1">Criar categoria</a>
         </div>
     </div>
     <div class="card-body">
@@ -18,38 +13,25 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                 <tr class="text-center">
-                    <th>Título</th>
                     <th>Categoria</th>
-                    <th>Criação</th>
-                    <th>Atualização</th>
-                    <th>Autor</th>
-                    <th>Status</th>
+                    <th>Criado</th>
+                    <th>Atualizado</th>
                     <th>Ação</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for post in posts %}
+                {% for category in categories %}
                 <tr>
-                    <td>{{post.title}}</td>
-                    <td>{{post.category}}</td>
-                    <td>{{post.created_at|date:"SHORT_DATE_FORMAT"}}</td>
-                    <td>{{post.updated_at|date:"SHORT_DATE_FORMAT"}}</td>
-                    <td>{{post.author.username}}</td>
-                    {% if post.published %}
-                    <td>Publicado</td>
-                    {% else %}
-                    <td>Não Publicado</td>
-                    {% endif %}
-                    <td>
-                        <a href="{% url 'blog:detail' post.slug %}" class="btn btn-primary"><i
-                                class="fas fa-eye"></i></a>
-                        <a href="{% url 'cms:edit_post' post.slug %}" class="btn btn-success"><i
-                                class="fas fa-edit"></i></a>
+                    <td>{{category.name}}</td>
+                    <td>{{category.created_at|date:"SHORT_DATE_FORMAT"}}</td>
+                    <td>{{category.updated_at|date:"SHORT_DATE_FORMAT"}}</td>
+                    <td class="text-center">
+                        <a href="#" class="btn btn-primary"><i class="fas fa-eye"></i></a>
+                        <a href="#" class="btn btn-success"><i class="fas fa-edit"></i></a>
                         <!-- Button trigger modal -->
                         <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">
                             <i class="fas fa-trash-alt"></i>
                         </a>
-
                         <!-- Modal -->
                         <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
                              tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -63,7 +45,7 @@
                                     </div>
                                     <div class="modal-body text-justify">
                                         <p class="m-0">
-                                            Tem certeza que deseja deletar a postagem: {{ post.title }}?
+                                            Tem certeza que deseja deletar a categoria: {{ category.name }}?
                                         </p>
                                         <p class="m-0">
                                             Essa ação não pode ser desfeita!
@@ -72,7 +54,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
                                         </button>
-                                        <a href="{% url 'cms:delete_post' post.pk %}" type="button"
+                                        <a href="{% url 'cms:delete_category' category.pk %}" type="button"
                                            class="btn btn-primary">Confirmar</a>
                                     </div>
                                 </div>
@@ -80,10 +62,6 @@
                         </div>
                     </td>
                 </tr>
-                {% empty %}
-                <div class="alert alert-warning" role="alert">
-                    Para completar a busca você deve selecionar um filtro!
-                </div>
                 {% endfor %}
                 </tbody>
             </table>
