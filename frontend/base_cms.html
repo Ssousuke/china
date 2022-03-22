@@ -34,17 +34,6 @@
                 </div>
                 <div class="sidebar-brand-text m-1">Miridam<sup>HUB</sup></div>
             </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'cms:dashboard' %}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -56,9 +45,12 @@
                 </a>
                 <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{% url 'cms:posts' %}"><i
-                                    class="far fa-clone m-1"></i>Postagens</a>
-                        <a class="collapse-item" href="#"><i class="fas fa-hashtag m-1"></i>Categorias</a>
+                        <a class="collapse-item" href="{% url 'cms:dashboard' %}">
+                            <i class="fas fa-tachometer-alt m-1"></i>Dashboard</a>
+                        <a class="collapse-item" href="{% url 'cms:posts' %}">
+                            <i class="far fa-clone m-1"></i>Postagens</a>
+                        <a class="collapse-item" href="{% url 'cms:categories'%}">
+                            <i class="fas fa-hashtag m-1"></i>Categorias</a>
                     </div>
             </li>
             <!-- Divider -->

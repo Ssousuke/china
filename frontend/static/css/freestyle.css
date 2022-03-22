@@ -5,3 +5,7 @@
     margin: 0;
     font-family: 'Roboto Mono', monospace;
 }
+
+.main {
+    padding-top: 4rem;
+}

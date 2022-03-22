@@ -10,7 +10,7 @@ def home(request):
 
 def detail(request, slug):
     template_name = 'blog/detail.html'
-    detail = get_object_or_404(Post, slug=slug)
+    detail = get_object_or_404(Post, published=True, slug=slug)
     return render(request, template_name, {'detail': detail})
 
 
