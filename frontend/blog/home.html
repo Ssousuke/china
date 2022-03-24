@@ -28,6 +28,12 @@
         </div>
     </div>
 </div>
+<div class="col-lg-8 mx-auto m-3">
+    <a href="{% url 'blog:categories' %}" class="text-primary p-2">Lista de categorias</a>
+    {% for cat in categories %}
+    <a href="{% url 'blog:category' cat.slug %}" class="text-primary p-2">#{{cat.name}}</a>
+    {% endfor %}
+</div>
 {% for post in list %}
 <div class="col-lg-8 mx-auto">
     <div class="card mb-2">

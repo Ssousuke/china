@@ -1,5 +1,5 @@
 {% extends 'base.html'%}
-<title>{% block title %} Categorias {% endblock title %}</title>
+<title> {% block title %} Lista de categorias {% endblock title %}</title>
 {% block content %}
 <h1 class="display-"><i class="fas fa-hashtag"></i>Categorias</h1>
 <ul class="list-group">
@@ -8,4 +8,5 @@
         <a href="{% url 'blog:category' cat.slug %}">{{ cat.name }}</a>
     </li>
     {% endfor %}
-</ul>{% endblock content %}
+</ul>
+{% endblock content %}
