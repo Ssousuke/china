@@ -77,7 +77,15 @@ def create_category(request):
     return render(request, template_name, {'form': form})
 
 
+@login_required
 def delete_category(request, pk):
     category = Category.objects.get(pk=pk)
     category.delete()
     return redirect('cms:categories')
+
+
+class UpdateCategory(LoginRequiredMixin, UpdateView):
+    template_name = 'cms/category_form.html'
+    form_class = CategoryForm
+    model = Category
+    success_url = reverse_lazy('cms:categories')
