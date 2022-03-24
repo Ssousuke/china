@@ -10,5 +10,5 @@ urlpatterns = [
 
     # category
     path('categorias/a/', views.categories, name='categories'),
-    path('categorias/<slug:slug>/', views.category, name='category'),
+    path('categorias/a/<slug:slug>/', views.category, name='category'),
 ]

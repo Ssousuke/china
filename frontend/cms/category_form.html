@@ -1,9 +1,7 @@
-{% extends 'base_cms.html' %}
-{% block content %}
+{% extends 'base_cms.html' %} {% block content %}
 <form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
+    {% csrf_token %} {{ form.as_p }}
     <button class="btn btn-primary">Concluir</button>
-    <button type="submit" class="btn btn-danger">Cancelar</button>
+    <a href="{% url 'cms:categories' %}" class="btn btn-danger">Cancelar</a>
 </form>
 {% endblock content %}

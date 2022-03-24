@@ -14,5 +14,6 @@ urlpatterns = [
     path('pages/posts/new/', views.PostCreateForm.as_view(), name='new_post'),
     path('pages/categories/list/', views.categories, name='categories'),
     path('pages/categories/new/', views.create_category, name='create_category'),
+    path('pages/categories/update/<int:pk>', views.UpdateCategory.as_view(), name='update_category'),
     path('pages/categories/delete/<int:pk>', views.delete_category, name='delete_category'),
 ]

@@ -4,7 +4,7 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <div class="col-sm-3 card p-3">
-            <a href="{% url 'cms:create_category'%}" class="btn btn-primary m-1">Criar categoria</a>
+            <a href="{% url 'cms:create_category' %}" class="btn btn-primary m-1">Criar categoria</a>
         </div>
     </div>
     <div class="card-body">
@@ -25,8 +25,10 @@
                     <td>{{category.created_at|date:"SHORT_DATE_FORMAT"}}</td>
                     <td>{{category.updated_at|date:"SHORT_DATE_FORMAT"}}</td>
                     <td class="text-center">
-                        <a href="#" class="btn btn-primary"><i class="fas fa-eye"></i></a>
-                        <a href="#" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                        <a adding the target=”_blank” href="{% url 'blog:category' category.slug %}" class="btn btn-primary"><i
+                                class="fas fa-eye"></i></a>
+                        <a href="{% url 'cms:update_category' category.pk %}" class="btn btn-success"><i
+                                class="fas fa-edit"></i></a>
                         <!-- Button trigger modal -->
                         <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">
                             <i class="fas fa-trash-alt"></i>

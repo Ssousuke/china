@@ -3,15 +3,19 @@
 {% block content %}
 <div class="col-lg-8 mx-auto border p-5">
     {% if detail.thumb %}
-    <img class="w-100" src="{{ detail.thumb.url }}"> {% endif %}
+    <img class="w-100" src="{{ detail.thumb.url }}">
+    {% endif %}
     <h1 class="display-4 fw-bold text-center">{{ detail.title }}</h1>
     <p class="text-muted text-center">publicado em; {{ detail.created_at}}, última atualização;
         {{ detail.updated_at }},
-        por {{ detail.author }}</p>
+        por {{ detail.author }}
+    </p>
     {{detail.body|safe}}
     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
         <a href="{% url 'blog:home' %}" class="card-link">Home</a>
+        {% if detail.category.slug %}
         <a href="{% url 'blog:category' detail.category.slug %}" class="card-link">{{detail.category}}</a>
+        {% endif %}
     </div>
 </div>
 <div class="col-lg-8 mx-auto m-3">
