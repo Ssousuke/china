@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 <title>{% block title %}{{ detail.title }}{% endblock title %}</title>
 {% block content %}
-<div class="col-lg-8 mx-auto border p-5">
+<div class="col-lg-12 mx-auto my-5">
     {% if detail.thumb %}
     <img class="w-100" src="{{ detail.thumb.url }}">
     {% endif %}
@@ -11,16 +11,5 @@
         por {{ detail.author }}
     </p>
     {{detail.body|safe}}
-    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-        <a href="{% url 'blog:home' %}" class="card-link">Home</a>
-        {% if detail.category.slug %}
-        <a href="{% url 'blog:category' detail.category.slug %}" class="card-link">{{detail.category}}</a>
-        {% endif %}
-    </div>
-</div>
-<div class="col-lg-8 mx-auto m-3">
-    {% for cat in categories %}
-    <a href="{% url 'blog:category' cat.slug %}" class="text-primary p-2">#{{cat.name}}</a>
-    {% endfor %}
 </div>
 {% endblock content %}
