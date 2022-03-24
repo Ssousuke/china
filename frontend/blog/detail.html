@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 <title>{% block title %}{{ detail.title }}{% endblock title %}</title>
 {% block content %}
-<div class="col-lg-12 mx-auto my-5">
+<div class="col-lg-8 mx-auto my-5">
     {% if detail.thumb %}
     <img class="w-100" src="{{ detail.thumb.url }}">
     {% endif %}
