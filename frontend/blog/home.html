@@ -1,53 +1,20 @@
 {% extends 'base.html'%}
 <title> {% block title %} Home {% endblock title %}</title>
 {% block content %}
-<div class="px-4 my-4 text-center border-bottom">
-    <h1 class="display-4 fw-bold">Wesley Farias</h1>
-    <div class="col-lg-8 mx-auto">
-        <p class="lead mb-4">Sou desenvolvedor backend, estudante de Sistemas de informação,
-            nordestino e um grande da entusiasta de tecnologia da informação.
-        </p>
-        <div class="col-lg-8 mx-auto">
-            <p class="lead mb-4">
-            </p>
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-                <a href="https://github.com/Ssousuke" type="button" class="btn btn-dark btn-lg">
-                    <i class="fab fa-github-alt"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/wesleyfariasdev/" type="button" class="btn btn-primary btn-lg">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://pt.stackoverflow.com/users/225816/wesley-matheus-da-silva-farias" type="button"
-                   class="btn btn-warning btn-lg">
-                    <i class="fab fa-stack-overflow"></i>
-                </a>
-                <a href="https://www.hackerrank.com/wesleysousukee" type="button" class="btn btn-success btn-lg">
-                    <i class="fab fa-hackerrank"></i>
-                </a>
+<div class="mx-auto">
+    <div class="row">
+        {% for post in list %}
+        <div class="col-4 p-1">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Publicado em {{ post.created_at|date:"SHORT_DATE_FORMAT"}},
+                    por {{ post.author }}</h6>
+                <p class="card-text">{{ post.description|truncatewords:30 }}</p>
+                <a href="{{ post.get_absolute_url }}" class="card-link">Cotinuar...</a>
+                <a href="{% url 'blog:category' post.category.slug %}" class="card-link">{{ post.category }}</a>
             </div>
         </div>
+        {% endfor %}
     </div>
 </div>
-<div class="col-lg-8 mx-auto m-3">
-    <a href="{% url 'blog:categories' %}" class="text-primary p-2">Lista de categorias</a>
-    {% for cat in categories %}
-    <a href="{% url 'blog:category' cat.slug %}" class="text-primary p-2">#{{cat.name}}</a>
-    {% endfor %}
-</div>
-{% for post in list %}
-<div class="col-lg-8 mx-auto">
-    <div class="card mb-2">
-        <div class="card-body">
-            <h5 class="card-title">{{ post.title }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{post.created_at}}, por {{ post.author }}</h6>
-            <p class="card-text">{{post.description|truncatewords:30}}</p>
-            <a href="{{post.get_absolute_url}}" class="card-link">Ver completo</a>
-            {% if post.category.slug %}
-            <a href="{% url 'blog:category' post.category.slug %}" class="card-link">{{post.category}}</a>
-            {% else %}
-            <a href="{% url 'blog:categories' %}" class="card-link">#Categorias</a>
-            {% endif %}
-        </div>
-    </div>
-</div>
-{% endfor %} {% endblock content %}
+{% endblock content %}
