@@ -1,16 +1,39 @@
 {% extends 'base.html'%}
 <title> {% block title %} Home {% endblock title %}</title>
 {% block content %}
-<div class="mx-auto">
-    <div class="row">
+<section id="home">
+    <!-- Início seção home -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 d-flex">
+                <!-- Textos da seção -->
+                <div class="align-self-center">
+                    <h1 class="display-4"><i class="fas fa-terminal text-warning"></i>Wesley Farias.</h1>
+                    <p class="descricao">
+                        Sou estudante de Sistemas de informação com conhecimento em Java, Python e C#. Atualmente focado
+                        em desenvolvimento WEB Backend, tambem tenho conhecimentos básicos em SQL, PostgreSQL e deploy
+                        de aplicações na plataforma Heroku.
+                    </p>
+                </div>
+            </div>
+            <!--/fim textos da seção -->
+            <div class="col-md-6 d-none d-md-block">
+                <img src="https://cdni.iconscout.com/illustration/premium/thumb/male-web-developer-4757556-3956359.png">
+            </div>
+        </div>
+    </div>
+</section>
+<!--/fim seção home -->
+<div class="container">
+    <div class="mx-auto my-2">
         {% for post in list %}
-        <div class="col-4 p-1">
+        <div class="card p-1">
             <div class="card-body">
                 <h5 class="card-title">{{ post.title }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Publicado em {{ post.created_at|date:"SHORT_DATE_FORMAT"}},
                     por {{ post.author }}</h6>
                 <p class="card-text">{{ post.description|truncatewords:30 }}</p>
-                <a href="{{ post.get_absolute_url }}" class="card-link">Cotinuar...</a>
+                <a href="{{ post.get_absolute_url }}" class="card-link">Continuar...</a>
                 <a href="{% url 'blog:category' post.category.slug %}" class="card-link">{{ post.category }}</a>
             </div>
         </div>

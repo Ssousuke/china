@@ -1,14 +1,16 @@
 {% extends 'base.html'%}
 <title> {% block title %} Lista de categorias {% endblock title %}</title>
 {% block content %}
-<div class="card my-5">
-    <div class="card-header bg-dark text-white">
-        Categorias
-    </div>
-    <div class="card-body">
-        {% for cat in list %}
-        <a href="{% url 'blog:category' cat.slug %}" class="btn btn-light">{{ cat.name }}</a>
-        {% endfor %}
+<div class="container">
+    <div class="card my-5">
+        <div class="card-header bg-dark text-white">
+            Categorias
+        </div>
+        <div class="card-body">
+            {% for cat in list %}
+            <a href="{% url 'blog:category' cat.slug %}" class="btn btn-light">{{ cat.name }}</a>
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock content %}
