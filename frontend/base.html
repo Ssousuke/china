@@ -21,7 +21,7 @@
         <title>{% block title %}Home{% endblock title %} | WesleyFarias</title>
     </head>
 
-    <body class="main">
+    <body>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
             <div class="container">
                 <a href="#" class="navbar-brand">
@@ -45,10 +45,10 @@
             </div>
         </nav>
 
-
-        {% block content %}
-        {% endblock content %}
-
+        <div class="main">
+            {% block content %}
+            {% endblock content %}
+        </div>
 
         <!-- JavaScript (Opcional) -->
         <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
