@@ -27,3 +27,7 @@ def category(request, slug):
     category = Category.objects.get(slug=slug)
     list = Post.objects.filter(category=category, published=True)
     return render(request, template_name, {'list': list})
+
+
+def error_404(request, exception):
+    return render(request, 'error/404.html')
