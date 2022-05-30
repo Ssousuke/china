@@ -5,13 +5,13 @@
     <div class="card-header py-3">
         <div class="row">
             <div class="col-sm-3 card p-3">
-                <a href="{% url 'cms:new_post'%}" class="btn btn-primary m-1">Criar postagens</a>
+                <a href="{% url 'cms:new_post' %}" class="btn btn-primary m-1">Criar postagens</a>
             </div>
         </div>
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered">
                 <thead>
                     <tr class="text-center">
                         <th>Título</th>
@@ -41,16 +41,16 @@
                             <a href="{% url 'cms:edit_post' post.slug %}" class="btn btn-success"><i
                                     class="fas fa-edit"></i></a>
                             <!-- Button trigger modal -->
-                            <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">
+                            <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop{{ post.id }}">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal fade" id="staticBackdrop{{ post.id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel{{ post.id }}" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Aviso de exlusão!</h5>
+                                            <h5 class="modal-title" id="staticBackdropLabel{{ post.id }}">Aviso de exlusão!</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
